@@ -1,0 +1,23 @@
+function populateATSResume() {
+    document.getElementById("t_name").innerText = document.getElementById("fname").value + " " + document.getElementById("lname").value;
+    document.getElementById("t_email").innerText = document.getElementById("email").value;
+    document.getElementById("t_number").innerText = document.getElementById("number").value;
+    document.getElementById("t_linkedIn").innerText = document.getElementById("linkedIn").value;
+    document.getElementById("t_summary").innerText = document.getElementById("profile").value;
+
+    let skills = document.querySelectorAll(".skill");
+    let skillsList = document.getElementById("t_skills");
+    skillsList.innerHTML = "";
+    skills.forEach(skill => {
+        let li = document.createElement("li");
+        li.innerText = skill.value;
+        skillsList.appendChild(li);
+    });
+}
+
+document.getElementById("generatecv").addEventListener("click", () => {
+    if (document.getElementById("template_4").checked) {
+        document.getElementById("Template_4").style.display = "block";
+        populateATSResume();
+    }
+});
